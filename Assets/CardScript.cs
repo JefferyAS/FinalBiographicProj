@@ -36,11 +36,11 @@ public class CardScript : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        image.color = new Color(1,0.8f,1);
+      //  image.color = new Color(1,0.8f,1);
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        image.color = new Color(1, 1, 1);
+     //   image.color = new Color(1, 1, 1);
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
