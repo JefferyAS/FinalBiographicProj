@@ -17,13 +17,16 @@ public class ResultText : MonoBehaviour
     {
         
     }
-    public void winText(string win) {
-        text.text = win;
+    public void winText(string card1,string card2) {
+        text.color = new Color(57f/255f,99f/255f,194f/255f);
+        text.text = "Your "+card1+" defeat enemy's "+card2+" :P";
     }
-    public void loseText(string lose) {
-        text.text = lose;
+    public void loseText(string card1, string card2) {
+        text.color = new Color(154f / 255f, 57f / 255f, 66f / 255f);
+        text.text = "Your " + card1 + " is defeated by enemy's " + card2 + " XD";
     }
-    public void tieText(string tie) {
-        text.text = tie;
+    public void tieText(string card1, string card2) {
+        text.color = Color.black;
+        text.text = "Your " + card1 + " isn't related to " + card2 + ". It's a tie!";
     }
 }

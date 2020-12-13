@@ -15,8 +15,9 @@ public class ReplaceObjectTest : MonoBehaviour
     {
         
     }
-    public void CreateCard(GameObject card) {
-        GameObject gameObj =Instantiate(card, transform);
-        gameObj.transform.localPosition = new Vector3(0,0,0);
+    public GameObject CreateCard(GameObject card) {
+        GameObject gameObj =Instantiate(card, transform.position,Quaternion.identity,transform);
+        return gameObj;
+        //gameObj.transform.localPosition = new Vector3(0,0,0);
     }
 }
