@@ -11,12 +11,20 @@ public class CardInBattle : MonoBehaviour, IPointerClickHandler
     private Image image;
     //public bool isChosen;
     public BattleChecker bc;
-    [TextArea]
-    public string winText;
-    [TextArea]
-    public string LoseText;
-    [TextArea]
-    public string Tie;
+    //[TextArea]
+    //public string winText;
+    //[TextArea]
+    //public string LoseText;
+    //[TextArea]
+    //public string Tie;
+    public string cardName;
+    public bool isDefeated;
+    public Color selectedColor;
+    
+
+    private float colorTimer;
+    private bool isChangingColor;
+    //public GameObject defeatIcon;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,22 +38,51 @@ public class CardInBattle : MonoBehaviour, IPointerClickHandler
     {
         if (bc.choseCard==this.gameObject)
         {
-            image.color = Color.green;
+            ChangeColor();
+        }
+        else if(!isChangingColor&&image.color!=Color.white){
+            ChangeToOriginColor();
+        }
+
+        if (isChangingColor) {
+            //Debug.Log(colorTimer);
+            ChangeToOriginColor(0);
+        }
+    }
+
+    public void ChangeColor() {
+        image.color = selectedColor;
+    }
+    private void ChangeToOriginColor(int time) {
+        if (colorTimer <= 0 && isChangingColor)
+        {
+            image.color = Color.white;
+            isChangingColor = false;
         }
         else {
-            image.color = Color.white;
+            colorTimer -= Time.deltaTime;
         }
+    }
+    public void ChangeToOriginColor()
+    {
+        isChangingColor = true;
+        colorTimer = 0.5f;
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        bc.ChooseCard(this.gameObject);
+        if (!isDefeated && bc.isYourTurn) {
+            bc.ChooseCard(this.gameObject);
+        }
     }
-    public string CompareCard(EnemyCardScript enemy) {
+    public string[] CompareCard(EnemyCardScript enemy) {
+        string[] result=new string[2];
         for (int i=0;i<element.Length;i++) {
             for (int j=0;j<enemy.advElement.Length;j++) {
                 if (element[i]==enemy.advElement[j]) {
-                    return "win";
+                    result[0]="win";
+                    result[1] = enemy.advElement[j];
+                    //Instantiate(defeatIcon,enemy.gameObject.transform.position,Quaternion.identity, enemy.gameObject.transform);
                 }
             }
         }
@@ -55,10 +92,13 @@ public class CardInBattle : MonoBehaviour, IPointerClickHandler
             {
                 if (advElement[i] == enemy.element[j])
                 {
-                    return "lose";
+                    isDefeated = true;
+                    result[0] = "lose";
+                    result[1] = advElement[i];
+                    //Instantiate(defeatIcon, transform.position, Quaternion.identity, transform);
                 }
             }
         }
-        return "tie";
+        return result;
     }
 }

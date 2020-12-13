@@ -9,6 +9,7 @@ public class CardScript : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     Image image;
     private bool isEntered;
     private float clickLag;
+    public Color selectedColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class CardScript : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     void Update()
     {
         if (isEntered) {
+            ChangeColor();
             float mouseX = (Screen.width - Input.mousePosition.x) / Screen.width;
             float mouseY = (Screen.height - Input.mousePosition.y) / Screen.height;
             if (mouseX <= 0.95 && mouseY >= 0.05)
@@ -27,6 +29,7 @@ public class CardScript : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
             }
             if (Input.GetMouseButton(0)) {
                 isEntered = false;
+                ChangeToOriginColor();
                 clickLag = 10;
             }
         }
@@ -47,6 +50,14 @@ public class CardScript : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         if (!isEntered && clickLag <= 0) {
             isEntered = true;
         }
+    }
+    public void ChangeColor()
+    {
+        image.color = selectedColor;
+    }
+    public void ChangeToOriginColor()
+    {
+        image.color = Color.white;
     }
 
 }

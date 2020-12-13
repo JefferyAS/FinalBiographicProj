@@ -36,17 +36,23 @@ public class CardPosCheck : MonoBehaviour
         bool checkOut = rt.Overlaps(excludingArea);
         if (checkIn && !isInDeck &&!checkOut)
         {
-            image.color = Color.green;
+            //image.color = Color.green;
             isInDeck = true;
             cardImage.SetActive(true);
             deckTracker.changeCard(CardNum, true) ;
         }
         else if(checkOut && isInDeck &&!checkIn) {
             isInDeck = false;
-            image.color = Color.red;
+            //image.color = Color.red;
             cardImage.SetActive(false);
             deckTracker.changeCard(CardNum, false);
         }
+    }
+    public void RemoveFromDeck() {
+        cardImage.SetActive(false);
+        isInDeck = false;
+        //deckTracker.changeCard(CardNum,false);
+        gameObject.SetActive(false);
     }
     //void changeColor(int count,Color color) {
     //    if (count == 0)

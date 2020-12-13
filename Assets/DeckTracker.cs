@@ -21,6 +21,10 @@ public class DeckTracker : MonoBehaviour
     public void changeCard(int num, bool status) {
         cardInDeck[num] = status;
     }
+    public void RemoveCard(int num)
+    {
+        cardInDeck[num] = false;
+    }
     public GameObject[] GetCardList() {
         int length = 0;
         for (int i = 0; i < cardInDeck.Length; i++)
