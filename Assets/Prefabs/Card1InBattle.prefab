@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.9482, y: -45.176}
-  m_SizeDelta: {x: 50.89647, y: 21.648392}
+  m_AnchoredPosition: {x: 0.05, y: -45.176}
+  m_SizeDelta: {x: 68.89605, y: 21.648392}
   m_Pivot: {x: 0.5000001, y: 0.5}
 --- !u!222 &630586834449772517
 CanvasRenderer:
@@ -65,13 +65,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: bfeffd86e9b014187abf827a3ff84d08, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -112,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.9482, y: -6.9933}
+  m_AnchoredPosition: {x: 1.0504, y: 0.0000014305}
   m_SizeDelta: {x: 50.433372, y: 54.716316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6804660538776521398
@@ -186,8 +186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.02, y: 36.145}
-  m_SizeDelta: {x: 54.758377, y: 31.560204}
+  m_AnchoredPosition: {x: 1.0504, y: 36.145}
+  m_SizeDelta: {x: 70.89918, y: 31.560204}
   m_Pivot: {x: 0.5000001, y: 0.5}
 --- !u!222 &6804660539301088177
 CanvasRenderer:
@@ -217,13 +217,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: bfeffd86e9b014187abf827a3ff84d08, type: 3}
     m_FontSize: 0
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -258,7 +258,7 @@ RectTransform:
   m_GameObject: {fileID: 6804660539620140145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0914054, y: 1.0914054, z: 1.0914054}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6804660539799180384}
   - {fileID: 6804660539301088183}
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1f91f2303fce145f7a50bbc25819ad7d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -325,16 +325,11 @@ MonoBehaviour:
   - Wood
   advElement:
   - Fire
+  - Geometry
   bc: {fileID: 0}
-  winText: 
-  LoseText: '"My Wood Shield will crash your fire eyeball!"
-
-    "No. Actually you
-    will lose this turn, because the wood shield will be burned by my Fire Eyeball!"
-
-    It''s
-    seem like your card is countered by Thomas.'
-  Tie: '"No, your Wood Shield cannot defeat my monster."'
+  cardName: Shield
+  isDefeated: 0
+  selectedColor: {r: 0.72037905, g: 1, b: 0.5801887, a: 1}
 --- !u!1 &6804660539799180385
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6804660539799180384
 RectTransform:
   m_ObjectHideFlags: 0
